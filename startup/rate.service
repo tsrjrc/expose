@@ -1,0 +1,15 @@
+  
+[Unit]
+Description=RATE ROS package
+Requires=apm.service
+After=network.target
+
+[Service]
+User=nvidia
+ExecStart=/bin/bash -c ". /opt/ros/kinetic/setup.bash; \
+                      ROS_HOSTNAME=`hostname`.local exec rosrun mavros mavsys rate --all 50"
+Restart=on-failure
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target

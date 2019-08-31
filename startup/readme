@@ -1,0 +1,12 @@
+sudo systemctl enable /home/nvidia/Desktop/startup/roscore.service
+sudo systemctl enable /home/nvidia/Desktop/startup/start.service
+
+sudo systemctl disable roscore.service
+sudo systemctl disable start.service
+
+sudo systemctl start start.service
+sudo systemctl start roscore.service
+
+sudo systemctl stop start.service
+sudo systemctl stop roscore.service
+

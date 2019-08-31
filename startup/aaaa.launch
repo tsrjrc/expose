@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="mavros" type="mavsys" name="mavsys" args="rate --all 50"></node>
+</launch>

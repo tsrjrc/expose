@@ -1,0 +1,15 @@
+  
+[Unit]
+Description=Clever ROS package
+Requires=zed.service
+After=network.target
+
+[Service]
+User=nvidia
+ExecStart=/bin/bash -c ". /home/nvidia/Desktop/expose_ws/devel/setup.bash; \
+                      ROS_HOSTNAME=`hostname`.local exec rosrun indoor_control indoor_control_node "
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target

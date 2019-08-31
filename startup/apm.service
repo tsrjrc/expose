@@ -1,0 +1,15 @@
+  
+[Unit]
+Description=APM ROS package
+Requires=roscore.service
+After=network.target
+
+[Service]
+User=nvidia
+ExecStart=/bin/bash -c ". /opt/ros/kinetic/setup.bash;\
+                      ROS_HOSTNAME=`hostname`.local exec roslaunch mavros apm.launch --wait --screen --skip-log-check"
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target
